@@ -21,7 +21,7 @@ function randomize() {
 
     alterButtonStatus();
 
-    if (from > to) {
+    if (from >= to) {
         alert('The number inserted in "From number" must be smaller than the number inserted in "To number".');
         reset();
     }
