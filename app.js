@@ -7,6 +7,17 @@ function randomize() {
     let numbers;
 
     for (let i = 0; i < quantity; i++) {
+
+        if (from >= to) {
+            alert('The number inserted in "From number" must be smaller than the number inserted in "To number".');
+            reset();
+        }
+
+        if(quantity > (to - from + 1)){
+            alert('Choose a quantity of numbers compatible with the diference between "from" and "to"');
+            break;
+        }
+
         numbers = randomNumber(from, to);
 
         while (drawn.includes(numbers)) {
@@ -19,12 +30,7 @@ function randomize() {
     let result = document.getElementById('result');
     result.innerHTML = `<label class="text__paragraph">Randomized numbers: ${drawn}</label>;`;
 
-    alterButtonStatus();
-
-    if (from >= to) {
-        alert('The number inserted in "From number" must be smaller than the number inserted in "To number".');
-        reset();
-    }
+    alterButtonStatus();    
 }
 
 function randomNumber(min, max) {
